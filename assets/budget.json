@@ -1,8 +1,16 @@
 {
-    "name": "Budget för 2021",
+    "name": "Budget",
+    "year": 2021,
+    "date": "2021-01-05",
+    "subject": "Sverige",
+    "source": "https://www.regeringen.se/sveriges-regering/finansdepartementet/statens-budget/statens-budget-som-excel/",
+    "population": 10379295,
+    "population_source": "http://www.statistikdatabasen.scb.se/sq/106392",
     "currency": "SEK",
     "unit": "1000",
-    "income": {},
+    "incomes_sum": 0,
+    "expenses_sum": 104253171,
+    "incomes": {},
     "expenses": {
         "1": {
             "name": "Rikets styrelse",
