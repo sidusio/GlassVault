@@ -1,4 +1,4 @@
-FROM node:latest AS buildStage
+FROM node:latest AS build
 RUN mkdir /app
 WORKDIR /app
 
@@ -9,5 +9,5 @@ RUN npm ci
 COPY . /app
 RUN npm run generate
 
-FROM nginx:stable-alpine
-COPY --from=buildStage /app/.dist /usr/share/nginx/html
+FROM nginx:stable-alpine AS prod
+COPY --from=build /app/.dist /usr/share/nginx/html
