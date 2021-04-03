@@ -1,13 +1,23 @@
 <template>
   <div>
-    Budget-id: {{ budget }}
+    Budget-year: {{ budget.year }}
+    <br>
+    <NuxtLink to="incomes" append>
+      Inkomster {{ budget.posts.incomes.sum }}
+    </NuxtLink>
+    <br>
+    <NuxtLink to="expenses" append>
+      Utgifter {{ budget.posts.expenses.sum }}
+    </NuxtLink>
   </div>
 </template>
 
 <script>
 export default {
-  asyncData ({ params }) {
-    return { budget: params.budget }
+  asyncData ({ params, $budgets }) {
+    const budget = $budgets()[params.budget]
+    // TODO check if undefined
+    return { budget }
   }
 }
 </script>

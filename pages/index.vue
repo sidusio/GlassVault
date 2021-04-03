@@ -6,10 +6,10 @@
       </h1>
       <ul class="links">
         <li
-          v-for="budget in budgets"
-          :key="budget.slug"
+          v-for="(budget, slug) in budgets"
+          :key="slug"
         >
-          <NuxtLink :to="'./' + budget.slug">
+          <NuxtLink :to="slug" append>
             {{ budget.name }}
           </NuxtLink>
         </li>
@@ -19,22 +19,9 @@
 </template>
 
 <script>
-
 export default {
-  data: () => ({
-    budgets: [
-      {
-        slug: 'qwerty',
-        name: 'first'
-      },
-      {
-        slug: 'xyz',
-        name: 'sexond'
-      }
-    ]
-  }),
-  mounted () {
-    console.log(this.$budgets())
+  asyncData ({ $budgets }) {
+    return { budgets: $budgets() }
   }
 }
 </script>
