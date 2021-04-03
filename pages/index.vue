@@ -19,6 +19,7 @@
 </template>
 
 <script>
+
 export default {
   data: () => ({
     budgets: [
@@ -31,7 +32,10 @@ export default {
         name: 'sexond'
       }
     ]
-  })
+  }),
+  mounted () {
+    console.log(this.$budgets())
+  }
 }
 </script>
 
